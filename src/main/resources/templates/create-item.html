@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+<div class="bg-white py-6 sm:py-8 lg:py-12 flex justify-center items-center h-screen">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <div class="mb-10 md:mb-16">
+            <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Want to add a new
+                task</h2>
+        </div>
+        <form action="/create-item" th:action="@{/todo}" th:object="${item}" method="post"
+              class="p-5 border border-gray-300 rounded bg-gray-100">
+            <div class="grid grid-cols-1 gap-6">
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                    <input type="text" th:field="*{name}" id="title" name="title"
+                           class="block w-full px-3 py-2 mt-1 text-gray-700 border rounded-lg focus:outline-none focus:ring focus:border-blue-300 sm:text-sm"
+                           required>
+                </div>
+                <div>
+                    <label for="description" th:field="*{description}"
+                           class="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea name="description" id="description"
+                              class="block w-full px-3 py-2 mt-1 text-gray-700 border rounded-lg focus:outline-none focus:ring focus:border-blue-300 sm:text-sm"
+                              required></textarea>
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit"
+                        class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm">
+                    Add Task
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
